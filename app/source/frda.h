@@ -17,6 +17,7 @@ void frdAExit();
 Handle *frdAGetSessionHandle();
 Result FRDA_CreateLocalAccount(u8 localAccountId, NascEnvironment nascEnvironment, u8 serverTypeField1, u8 serverTypeField2);
 Result FRDA_SetLocalAccountId(u8 localAccountId);
+Result FRDA_SetClientSdkVersion(u32 sdkVer);
 
 #ifdef __cplusplus
 }

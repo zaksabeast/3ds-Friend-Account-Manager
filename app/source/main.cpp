@@ -19,6 +19,9 @@ int main(int argc, char *argv[]) {
   gfxInitDefault();
   consoleInit(GFX_TOP, NULL);
 
+  // This version or higher is required creating/swaping local accounts
+  FRDA_SetClientSdkVersion(0x70000c8);
+
   bool hasTakenAction = false;
 
   printf("Friend account manager\n");
