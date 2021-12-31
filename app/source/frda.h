@@ -8,8 +8,8 @@ extern "C" {
 
 typedef enum {
   NASC_ENV_Prod = 0,
-  NASC_ENV_Dev = 1,
-  NASC_ENV_Test = 2,
+  NASC_ENV_Test = 1,
+  NASC_ENV_Dev = 2,
 } NascEnvironment;
 
 Result frdAInit();
