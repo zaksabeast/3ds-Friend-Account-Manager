@@ -26,7 +26,8 @@ int main(int argc, char *argv[]) {
 
   printf("Friend account manager\n");
   printf("Press \"Start\" to quit or reboot\n");
-  printf("Press \"A\" to create a new account 2\n");
+  printf("Press \"A\" to create a new PROD account 2\n");
+  printf("Press \"B\" to create a new TEST account 2\n");
   printf("Press \"X\" to use account 1\n");
   printf("Press \"Y\" to use account 2\n\n");
 
@@ -47,17 +48,22 @@ int main(int argc, char *argv[]) {
     }
 
     if (kDown & KEY_A) {
-      printf("Creating local account Id 2...\n");
+      printf("Creating PROD account Id 2...\n");
       handleResult(FRDA_CreateLocalAccount(2, NASC_ENV_Prod, 0, 1));
     }
 
+    if (kDown & KEY_B) {
+      printf("Creating TEST account Id 2...\n");
+      handleResult(FRDA_CreateLocalAccount(2, NASC_ENV_Test, 0, 1));
+    }
+
     if (kDown & KEY_X) {
-      printf("Using local account Id 1...\n");
+      printf("Using account Id 1...\n");
       handleResult(FRDA_SetLocalAccountId(1));
     }
 
     if (kDown & KEY_Y) {
-      printf("Using local account Id 2...\n");
+      printf("Using account Id 2...\n");
       handleResult(FRDA_SetLocalAccountId(2));
     }
   }
