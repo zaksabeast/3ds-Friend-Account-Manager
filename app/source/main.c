@@ -142,6 +142,9 @@ int main()
 	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
 	C2D_Prepare();
 
+  u32 rc = 0;
+  handleResult(ACTA_GetPersistentId(&current_persistent_id, ACT_CURRENT_ACCOUNT), "Current persistent id");
+
   // This version or higher is required creating/swapping friend accounts
   FRDA_SetClientSdkVersion(0x70000c8);
 
