@@ -37,6 +37,7 @@
 *.smdh
 build
 out
+luma
 target
 *.bin
 *.ips
