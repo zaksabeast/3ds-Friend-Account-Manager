@@ -35,6 +35,5 @@ set_base_account_url equ 0x10ed48
 
     .align 4
     unofficial_url:
-      ; ACCOUNT_URL needs to be provided at build time
-      .asciiz ACCOUNT_URL + "/v1/api/"
+      .asciiz "https://account.pretendo.cc/v1/api/"
   .endarea

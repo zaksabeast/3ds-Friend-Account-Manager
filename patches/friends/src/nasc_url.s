@@ -2,5 +2,5 @@
 ; This points to the test env url
 .org 0x16129a
   .area 38
-    .asciiz NASC_URL
+    .asciiz "https://nasc.pretendo.cc/ac/"
   .endarea
