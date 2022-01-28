@@ -31,8 +31,10 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-APP_AUTHOR		:=	Zaksabeast
-TARGET		:=	friend-account-manager
+APP_TITLE := Nimbus
+APP_DESCRIPTION := Pretendo account manager
+APP_AUTHOR		:=	Zaksabeast, shutterbug2000
+TARGET		:=	nimbus
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
