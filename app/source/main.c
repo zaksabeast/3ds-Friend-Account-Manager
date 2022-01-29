@@ -190,7 +190,6 @@ int main()
         if(switchAccounts(2)){
           createAccount(2);
         }
-        createAccount(2);
         needsReboot = true;
         break;
       }
