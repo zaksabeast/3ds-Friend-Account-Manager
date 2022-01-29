@@ -79,6 +79,9 @@ C2D_TextBuf g_dynamicBuf;
 u32 current_persistent_id = 0;
 u32 screen = 0;
 
+u32 act_account_count = 0;
+u32 current_account = 0;
+
 static void sceneInit(void)
 {
   C2D_SpriteSheet spriteSheet = C2D_SpriteSheetLoadFromMem(sheet_t3x, sheet_t3x_size);
@@ -111,7 +114,7 @@ static void sceneRenderTop()
 static void sceneRenderBottom()
 {
   if(screen == 0){
-    if(current_persistent_id == 0x80000001){
+    if(current_account == 0 || act_account_count == 1){
 		  C2D_DrawSprite(&nintendo_selected);
 		  C2D_DrawSprite(&pretendo_deselected);
     }else{
@@ -143,7 +146,19 @@ int main()
 	C2D_Prepare();
 
   u32 rc = 0;
+
+  u32 act_account_index = 0;
+  u32 current_persistent_id = 0;
+  u32 pretendo_persistent_id = 0;
+  handleResult(ACTA_GetAccountIndexOfFriendAccountId(&act_account_index, 2), "Get persistent id for Pretendo");
   handleResult(ACTA_GetPersistentId(&current_persistent_id, ACT_CURRENT_ACCOUNT), "Current persistent id");
+  handleResult(ACTA_GetPersistentId(&pretendo_persistent_id, act_account_index), "Current persistent id");
+
+  if(current_persistent_id == pretendo_persistent_id){
+    current_account = 1;
+  }else{
+    current_account = 0;
+  }
 
   // This version or higher is required creating/swapping friend accounts
   FRDA_SetClientSdkVersion(0x70000c8);
@@ -155,7 +170,6 @@ int main()
 	// Initialize the scene
 	sceneInit();
 
-  u32 act_account_count = 0;
   ACTA_GetAccountCount(&act_account_count);
 
 	// Main loop
@@ -176,6 +190,7 @@ int main()
         if(switchAccounts(2)){
           createAccount(2);
         }
+        createAccount(2);
         needsReboot = true;
         break;
       }
