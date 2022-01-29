@@ -6,7 +6,7 @@ endif
 
 all:
 	@mkdir -p build out
-	@armips src/main.s -strequ NASC_URL $(NASC_URL)
+	@armips src/main.s
 	@flips -c code.bin build/patched_code.bin out/code.ips
 
 clean:
